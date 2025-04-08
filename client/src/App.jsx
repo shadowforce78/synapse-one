@@ -7,13 +7,19 @@ import './styles/preview.css';
 import './styles/themes.css';
 
 function App() {
-  const [markdown, setMarkdown] = useState('');
+  // Initialize with a default welcome message
+  const [markdown, setMarkdown] = useState('# Welcome to Synapse One\n\nStart typing your markdown here...');
 
   return (
-    <SplitView>
-      <EditorPanel markdown={markdown} setMarkdown={setMarkdown} />
-      <PreviewPanel markdown={markdown} />
-    </SplitView>
+    <>
+      <header style={{ background: '#eee', padding: '10px', textAlign: 'center' }}>
+        Application Loaded
+      </header>
+      <SplitView>
+        <EditorPanel markdown={markdown} setMarkdown={setMarkdown} />
+        <PreviewPanel markdown={markdown || ''} />
+      </SplitView>
+    </>
   );
 }
 

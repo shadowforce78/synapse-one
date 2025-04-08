@@ -1,16 +1,14 @@
 import React from 'react';
-import EditorPanel from '../Editor';
-import PreviewPanel from '../Preview';
 import './SplitView.css';
 
-const SplitView = () => {
+const SplitView = ({ children }) => {
   return (
     <div className="split-view">
       <div className="editor-section">
-        <EditorPanel />
+        {children[0]}
       </div>
       <div className="preview-section">
-        <PreviewPanel />
+        {children[1]}
       </div>
     </div>
   );
