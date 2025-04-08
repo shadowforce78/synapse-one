@@ -1,20 +1,20 @@
 @echo off
 cls
 
-REM Nettoyage complet
-echo Cleaning previous installation...
-call npm run clean
-if %errorlevel% neq 0 (
-    echo Cleaning failed but continuing...
-)
+@REM REM Nettoyage complet
+@REM echo Cleaning previous installation...
+@REM call npm run clean
+@REM if %errorlevel% neq 0 (
+@REM     echo Cleaning failed but continuing...
+@REM )
 
-REM Installation fraîche des dépendances
-echo Installing dependencies...
-call npm install
-if %errorlevel% neq 0 (
-    echo Dependencies installation failed.
-    exit /b %errorlevel%
-)
+@REM REM Installation fraîche des dépendances
+@REM echo Installing dependencies...
+@REM call npm install
+@REM if %errorlevel% neq 0 (
+@REM     echo Dependencies installation failed.
+@REM     exit /b %errorlevel%
+@REM )
 
 REM Build de l'interface
 echo Building UI...
