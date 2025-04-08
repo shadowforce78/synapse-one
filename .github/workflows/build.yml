@@ -15,13 +15,14 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, macos-latest, ubuntu-latest]
+      fail-fast: false
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
@@ -29,7 +30,7 @@ jobs:
       - name: Install Dependencies
         run: |
           cd client
-          npm install
+          npm ci
 
       - name: Build React App
         run: |
@@ -42,7 +43,7 @@ jobs:
           npm run electron:build
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: synapse-one-${{ matrix.os }}
           path: |
@@ -50,4 +51,6 @@ jobs:
             client/dist/*.dmg
             client/dist/*.AppImage
             client/dist/*.snap
-          if-no-files-found: ignore
+          compression-level: 9
+          retention-days: 5
+          if-no-files-found: warn
