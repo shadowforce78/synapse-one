@@ -1,5 +1,5 @@
 @echo off
-
+cls
 REM Exécution de la commande build:ui
 echo Building UI...
 call npm run build:ui
