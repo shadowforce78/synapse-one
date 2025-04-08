@@ -5,13 +5,15 @@ import SplitView from './components/Layout/SplitView';
 import './assets/styles/editor.css';
 import './assets/styles/preview.css';
 import './assets/styles/themes.css';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
 
-function App() {
+function AppContent() {
+  const { isDark, setIsDark } = useTheme();
   const [markdown, setMarkdown] = useState('# Welcome to Synapse One\n\nStart typing your markdown here...');
   const phase1Tasks = [
     { id: 1, text: 'Interface avec éditeur Markdown + preview', done: true },
-    { id: 2, text: 'Rendu live avec markdown-it', done: false },
-    { id: 3, text: 'Mode clair / sombre', done: false },
+    { id: 2, text: 'Rendu live avec markdown-it', done: true },
+    { id: 3, text: 'Mode clair / sombre', done: true },
     { id: 4, text: 'Sauvegarde locale (.md)', done: false },
     { id: 5, text: 'Chargement / ouverture fichier .md', done: false },
     { id: 6, text: 'Export PDF', done: false },
@@ -24,11 +26,26 @@ function App() {
   return (
     <>
       <header style={{
-        background: '#2c2c2c',
+        background: isDark ? '#2c2c2c' : '#f0f0f0',
         padding: '20px',
-        color: 'white'
+        color: isDark ? 'white' : 'black'
       }}>
-        <h1 style={{ margin: '0 0 15px 0', fontSize: '1.5em' }}>Synapse One - Phase 1</h1>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+          <h1 style={{ margin: 0, fontSize: '1.5em' }}>Synapse One - Phase 1</h1>
+          <button
+            onClick={() => setIsDark(!isDark)}
+            style={{
+              padding: '8px 12px',
+              borderRadius: '5px',
+              border: 'none',
+              background: isDark ? '#444' : '#ddd',
+              color: isDark ? 'white' : 'black',
+              cursor: 'pointer'
+            }}
+          >
+            {isDark ? '☀️ Light' : '🌙 Dark'}
+          </button>
+        </div>
         <div style={{ background: '#444', borderRadius: '10px', padding: '15px' }}>
           <div style={{ marginBottom: '10px' }}>
             Progression: {completedTasks}/{phase1Tasks.length} ({Math.round(progress)}%)
@@ -42,8 +59,8 @@ function App() {
               transition: 'width 0.3s ease'
             }} />
           </div>
-          <ul style={{ 
-            listStyle: 'none', 
+          <ul style={{
+            listStyle: 'none',
             padding: '10px 0 0 0',
             margin: 0,
             display: 'grid',
@@ -51,10 +68,10 @@ function App() {
             gap: '10px'
           }}>
             {phase1Tasks.map(task => (
-              <li key={task.id} style={{ 
-                display: 'flex', 
+              <li key={task.id} style={{
+                display: 'flex',
                 alignItems: 'center',
-                gap: '8px' 
+                gap: '8px'
               }}>
                 <input
                   type="checkbox"
@@ -74,6 +91,14 @@ function App() {
         <PreviewPanel markdown={markdown || ''} />
       </SplitView>
     </>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 
