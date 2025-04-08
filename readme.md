@@ -16,6 +16,8 @@ Créer un éditeur markdown fonctionnel, fluide, avec preview et export.
 - [x] Mode clair / sombre
 - [x] Sauvegarde locale (`.md`)
 - [x] Chargement / ouverture d’un fichier `.md`
+- [ ] Ajout prise en charge de `Mermaid` pour les diagrammes
+- [ ] Ajout prise en charge de `Latex` pour les formules mathématiques
 - [ ] Export PDF (via `html2pdf` ou `jsPDF`)
 - [ ] UI simple, propre, inspiration Obsidian / Notion
 
