@@ -34,7 +34,10 @@ function AppContent() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
           <h1 style={{ margin: 0, fontSize: '1.5em' }}>Synapse One - Phase 1</h1>
           <div style={{ display: 'flex', gap: '10px' }}>
-            <Toolbar markdown={markdown} onFileOpen={content => content && setMarkdown(content)} />
+            <Toolbar 
+              markdown={markdown} 
+              onFileOpen={setMarkdown} 
+            />
             <button
               onClick={() => setIsDark(!isDark)}
               style={{

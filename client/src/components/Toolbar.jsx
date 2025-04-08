@@ -1,4 +1,4 @@
-const Toolbar = ({ markdown }) => {
+const Toolbar = ({ markdown, onFileOpen }) => {
   const handleSave = async () => {
     try {
       const handle = await window.showSaveFilePicker({
@@ -25,10 +25,9 @@ const Toolbar = ({ markdown }) => {
       });
       const file = await handle.getFile();
       const content = await file.text();
-      return content;
+      onFileOpen(content); // Appel de la callback avec le contenu
     } catch (err) {
       console.error('Failed to open file:', err);
-      return null;
     }
   };
 
