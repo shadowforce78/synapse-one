@@ -1,0 +1,34 @@
+:root {
+  --background-light: #ffffff;
+  --background-dark: #1e1e1e;
+  --text-light: #000000;
+  --text-dark: #ffffff;
+  --border-light: #cccccc;
+  --border-dark: #444444;
+}
+
+.light-theme {
+  background-color: var(--background-light);
+  color: var(--text-light);
+}
+
+.dark-theme {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.editor {
+  border: 1px solid var(--border-light);
+}
+
+.editor.dark-theme {
+  border: 1px solid var(--border-dark);
+}
+
+.preview {
+  border: 1px solid var(--border-light);
+}
+
+.preview.dark-theme {
+  border: 1px solid var(--border-dark);
+}
