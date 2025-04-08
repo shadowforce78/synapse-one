@@ -1,0 +1,18 @@
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #2c2c2c;
+  --border-color: #eaeaea;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1e1e1e;
+    --text-primary: #ffffff;
+    --border-color: #333333;
+  }
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}

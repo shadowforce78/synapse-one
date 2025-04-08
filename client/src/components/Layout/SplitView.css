@@ -1,77 +1,12 @@
 .split-view {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 200px);
+  gap: 1px;
+  background-color: var(--border-color);
 }
 
-.editor-section,
-.preview-section {
-    flex: 1;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-/* Add a resizable divider between panels */
-.editor-section {
-    border-right: 1px solid var(--border-color);
-    resize: horizontal;
-    overflow: auto;
-    min-width: 30%;
-    max-width: 70%;
-}
-
-/* Fix for Firefox which doesn't support resize: horizontal properly */
-@supports (-moz-appearance:none) {
-    .split-view {
-        position: relative;
-    }
-
-    .editor-section {
-        resize: none;
-        width: 50%;
-    }
-
-    .preview-section {
-        width: 50%;
-    }
-
-    .split-view::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        top: 0;
-        bottom: 0;
-        width: 6px;
-        margin-left: -3px;
-        background-color: var(--border-color);
-        cursor: col-resize;
-    }
-}
-
-/* Add scrolling to the preview section if content overflows */
-.preview-section {
-    overflow-y: auto;
-}
-
-/* Add responsive behavior for smaller screens */
-@media (max-width: 768px) {
-    .split-view {
-        flex-direction: column;
-    }
-
-    .editor-section,
-    .preview-section {
-        width: 100%;
-        height: 50vh;
-        min-width: 100%;
-        max-width: 100%;
-        resize: vertical;
-    }
-
-    .editor-section {
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-    }
+.split-view > * {
+  background-color: var(--bg-primary);
+  overflow: hidden;
 }
