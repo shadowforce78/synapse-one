@@ -11,8 +11,8 @@
 Créer un éditeur markdown fonctionnel, fluide, avec preview et export.
 
 ### Tâches principales
-- [ ] Interface avec éditeur Markdown + preview (split view)
-- [ ] Rendu live avec `markdown-it` ou `remark`
+- [x] Interface avec éditeur Markdown + preview (split view)
+- [x] Rendu live avec `markdown-it` ou `remark`
 - [ ] Mode clair / sombre
 - [ ] Sauvegarde locale (`.md`)
 - [ ] Chargement / ouverture d’un fichier `.md`
