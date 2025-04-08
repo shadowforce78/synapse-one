@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron:build": "electron-builder build --publish never",
+    "electron:build:win": "electron-builder build --win --publish never",
+    "electron:build:mac": "electron-builder build --mac --publish never",
+    "electron:build:linux": "electron-builder build --linux --publish never"
   },
   "dependencies": {
     "markdown-it": "^14.1.0",
@@ -27,5 +31,25 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.3",
     "vite": "^6.2.0"
+  },
+  "build": {
+    "appId": "com.synapse.one",
+    "productName": "Synapse One",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "mac": {
+      "target": ["dmg"]
+    },
+    "linux": {
+      "target": ["AppImage", "snap"]
+    }
   }
 }
