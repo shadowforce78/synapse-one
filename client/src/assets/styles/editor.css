@@ -1,6 +1,7 @@
 .editor-container {
   height: 100%;
   width: 100%;
+  background-color: var(--bg-primary);
 }
 
 .editor {
@@ -11,8 +12,12 @@
   resize: none;
   outline: none;
   font-family: 'Consolas', monospace;
-  color: aliceblue;
   font-size: 14px;
   line-height: 1.6;
-  background: transparent;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.editor::placeholder {
+  color: var(--text-secondary);
 }

@@ -1,18 +1,27 @@
-:root {
-  --bg-primary: #ffffff;
-  --text-primary: #2c2c2c;
-  --border-color: #eaeaea;
+:root[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f0f0f0;
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+    --border-color: #eaeaea;
+    --accent-color: #4CAF50;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+:root[data-theme="dark"] {
     --bg-primary: #1e1e1e;
+    --bg-secondary: #2c2c2c;
     --text-primary: #ffffff;
+    --text-secondary: #cccccc;
     --border-color: #333333;
-  }
+    --accent-color: #4CAF50;
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.preview-container,
+.editor-container {
+    background-color: var(--bg-primary);
 }
