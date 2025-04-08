@@ -16,7 +16,11 @@
   "dependencies": {
     "markdown-it": "^14.1.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "katex": "^0.16.9",
+    "markdown-it-katex": "^2.0.3",
+    "markdown-it-mermaid": "^0.2.5",
+    "mermaid": "^10.9.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

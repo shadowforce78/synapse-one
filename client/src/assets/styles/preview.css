@@ -34,3 +34,53 @@
   padding-left: 1em;
   color: #666;
 }
+
+.mermaid-container {
+  background: var(--bg-secondary);
+  padding: 1em;
+  border-radius: 4px;
+  margin: 1em 0;
+}
+
+.mermaid {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1em 0;
+  margin: 0.5em 0;
+}
+
+.error {
+  color: #e74c3c;
+  font-family: monospace;
+  margin: 0;
+}
+
+.mermaid {
+  text-align: center;
+  margin: 1em 0;
+}
+
+.markdown-body .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1em 0;
+}
+
+.markdown-body pre {
+  background-color: var(--bg-secondary);
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+}

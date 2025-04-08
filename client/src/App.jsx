@@ -10,15 +10,36 @@ import { ThemeProvider, useTheme } from './context/ThemeContext';
 
 function AppContent() {
   const { isDark, setIsDark } = useTheme();
-  const [markdown, setMarkdown] = useState('# Welcome to Synapse One\n\nStart typing your markdown here...');
+  const [markdown, setMarkdown] = useState(`# Welcome to Synapse One
+
+Start typing your markdown here...
+
+## Exemple de diagramme Mermaid
+
+\`\`\`mermaid
+graph TD
+    A[Client] --> B[Load Balancer]
+    B --> C[Server01]
+    B --> D[Server02]
+\`\`\`
+
+## Exemple de formule LaTeX
+
+Soit l'équation quadratique : $ax^2 + bx + c = 0$
+
+La solution est donnée par : $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$$
+`);
+
   const phase1Tasks = [
     { id: 1, text: 'Interface avec éditeur Markdown + preview', done: true },
     { id: 2, text: 'Rendu live avec markdown-it', done: true },
     { id: 3, text: 'Mode clair / sombre', done: true },
     { id: 4, text: 'Sauvegarde locale (.md)', done: true },
     { id: 5, text: 'Chargement / ouverture fichier .md', done: true },
-    { id: 6, text: 'Export PDF', done: false },
-    { id: 7, text: 'UI simple et propre', done: false },
+    { id: 6, text: 'Prise en charge de Mermaid', done: true },
+    { id: 7, text: 'Prise en charge de LaTeX', done: true },
+    { id: 8, text: 'Export PDF', done: false },
+    { id: 9, text: 'UI simple et propre', done: false }
   ];
 
   const completedTasks = phase1Tasks.filter(task => task.done).length;
@@ -34,9 +55,9 @@ function AppContent() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
           <h1 style={{ margin: 0, fontSize: '1.5em' }}>Synapse One - Phase 1</h1>
           <div style={{ display: 'flex', gap: '10px' }}>
-            <Toolbar 
-              markdown={markdown} 
-              onFileOpen={setMarkdown} 
+            <Toolbar
+              markdown={markdown}
+              onFileOpen={setMarkdown}
             />
             <button
               onClick={() => setIsDark(!isDark)}
@@ -60,7 +81,7 @@ function AppContent() {
           <div style={{ background: '#666', borderRadius: '5px' }}>
             <div style={{
               width: `${progress}%`,
-              height: '10px', 
+              height: '10px',
               background: '#4CAF50',
               borderRadius: '5px',
               transition: 'width 0.3s ease'
