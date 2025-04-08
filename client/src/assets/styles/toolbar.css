@@ -1,0 +1,20 @@
+.toolbar {
+  display: flex;
+  gap: 8px;
+}
+
+.toolbar button {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.toolbar button:hover {
+  opacity: 0.8;
+}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import EditorPanel from './components/Editor';
 import PreviewPanel from './components/Preview';
 import SplitView from './components/Layout/SplitView';
+import Toolbar from './components/Toolbar';
 import './assets/styles/editor.css';
 import './assets/styles/preview.css';
 import './assets/styles/themes.css';
@@ -14,8 +15,8 @@ function AppContent() {
     { id: 1, text: 'Interface avec éditeur Markdown + preview', done: true },
     { id: 2, text: 'Rendu live avec markdown-it', done: true },
     { id: 3, text: 'Mode clair / sombre', done: true },
-    { id: 4, text: 'Sauvegarde locale (.md)', done: false },
-    { id: 5, text: 'Chargement / ouverture fichier .md', done: false },
+    { id: 4, text: 'Sauvegarde locale (.md)', done: true },
+    { id: 5, text: 'Chargement / ouverture fichier .md', done: true },
     { id: 6, text: 'Export PDF', done: false },
     { id: 7, text: 'UI simple et propre', done: false },
   ];
@@ -32,19 +33,22 @@ function AppContent() {
       }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
           <h1 style={{ margin: 0, fontSize: '1.5em' }}>Synapse One - Phase 1</h1>
-          <button
-            onClick={() => setIsDark(!isDark)}
-            style={{
-              padding: '8px 12px',
-              borderRadius: '5px',
-              border: 'none',
-              background: isDark ? '#444' : '#ddd',
-              color: isDark ? 'white' : 'black',
-              cursor: 'pointer'
-            }}
-          >
-            {isDark ? '☀️ Light' : '🌙 Dark'}
-          </button>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <Toolbar markdown={markdown} onFileOpen={content => content && setMarkdown(content)} />
+            <button
+              onClick={() => setIsDark(!isDark)}
+              style={{
+                padding: '8px 12px',
+                borderRadius: '5px',
+                border: 'none',
+                background: isDark ? '#444' : '#ddd',
+                color: isDark ? 'white' : 'black',
+                cursor: 'pointer'
+              }}
+            >
+              {isDark ? '☀️ Light' : '🌙 Dark'}
+            </button>
+          </div>
         </div>
         <div style={{ background: '#444', borderRadius: '10px', padding: '15px' }}>
           <div style={{ marginBottom: '10px' }}>
@@ -53,7 +57,7 @@ function AppContent() {
           <div style={{ background: '#666', borderRadius: '5px' }}>
             <div style={{
               width: `${progress}%`,
-              height: '10px',
+              height: '10px', 
               background: '#4CAF50',
               borderRadius: '5px',
               transition: 'width 0.3s ease'
