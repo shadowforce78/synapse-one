@@ -3,10 +3,34 @@
   width: 100%;
   padding: 20px;
   overflow-y: auto;
+  background-color: var(--bg-primary);
 }
 
-.preview {
+.preview.markdown-body {
   max-width: 800px;
   margin: 0 auto;
   font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+.markdown-body h1 { font-size: 2em; margin-bottom: 0.5em; }
+.markdown-body h2 { font-size: 1.5em; margin-bottom: 0.5em; }
+.markdown-body h3 { font-size: 1.3em; margin-bottom: 0.5em; }
+.markdown-body p { margin-bottom: 1em; }
+.markdown-body code {
+  background: rgba(0,0,0,0.05);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Consolas', monospace;
+}
+.markdown-body pre code {
+  display: block;
+  padding: 1em;
+  overflow-x: auto;
+}
+.markdown-body blockquote {
+  border-left: 4px solid var(--border-color);
+  margin: 0;
+  padding-left: 1em;
+  color: #666;
 }
