@@ -18,10 +18,12 @@ Start typing your markdown here...
 ## Exemple de diagramme Mermaid
 
 \`\`\`mermaid
-graph TD
-    A[Client] --> B[Load Balancer]
-    B --> C[Server01]
-    B --> D[Server02]
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+
 \`\`\`
 
 ## Exemple de formule LaTeX

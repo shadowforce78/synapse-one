@@ -3,7 +3,7 @@ import MarkdownIt from 'markdown-it';
 import mermaid from 'mermaid';
 
 mermaid.initialize({
-  startOnLoad: false,
+  startOnLoad: true,
   theme: 'default',
   securityLevel: 'loose',
   fontFamily: 'sans-serif'
