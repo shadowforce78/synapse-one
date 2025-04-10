@@ -29,7 +29,7 @@ La solution est donnée par : $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$$
     { id: 4, text: 'Sauvegarde locale (.md)', done: true },
     { id: 5, text: 'Chargement / ouverture fichier .md', done: true },
     { id: 6, text: 'Prise en charge de LaTeX', done: true },
-    { id: 7, text: 'Export PDF', done: false },
+    { id: 7, text: 'Export PDF', done: true },
     { id: 8, text: 'UI simple et propre', done: false }
   ];
 
