@@ -24,7 +24,7 @@ md.renderer.rules.text = (tokens, idx) => {
   return content;
 };
 
-const PreviewPanel = React.forwardRef(({ markdown }, ref) => {
+const PreviewPanel = ({ markdown }) => {
   const [renderedContent, setRenderedContent] = useState('');
   const containerRef = useRef(null);
 
@@ -60,7 +60,7 @@ const PreviewPanel = React.forwardRef(({ markdown }, ref) => {
   }, [renderedContent]);
 
   return (
-    <div className="preview-container" ref={ref}>
+    <div className="preview-container">
       <div
         ref={containerRef}
         className="preview markdown-body"
@@ -68,6 +68,6 @@ const PreviewPanel = React.forwardRef(({ markdown }, ref) => {
       />
     </div>
   );
-});
+};
 
 export default PreviewPanel;

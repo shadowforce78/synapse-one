@@ -1,8 +1,8 @@
 import React from 'react';
 
-const EditorPanel = React.forwardRef(({ markdown, setMarkdown }, ref) => {
+const EditorPanel = ({ markdown, setMarkdown }) => {
   return (
-    <div className="editor-container" ref={ref}>
+    <div className="editor-container">
       <textarea
         className="editor"
         value={markdown}
@@ -11,6 +11,6 @@ const EditorPanel = React.forwardRef(({ markdown, setMarkdown }, ref) => {
       />
     </div>
   );
-});
+};
 
 export default EditorPanel;
