@@ -2,15 +2,17 @@
   height: 100%;
   width: 100%;
   padding: 20px;
-  overflow-y: auto;
+  overflow: auto;
+  white-space: nowrap;
   background-color: var(--bg-primary);
 }
 
 .preview.markdown-body {
-  max-width: 800px;
-  margin: 0 auto;
-  font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
+  max-width: none;
+  height: 100%;
+  overflow: auto;
+  white-space: pre;
+  min-width: min-content;
 }
 
 .markdown-body h1 { font-size: 2em; margin-bottom: 0.5em; }
@@ -33,4 +35,156 @@
   margin: 0;
   padding-left: 1em;
   color: #666;
+}
+
+.mermaid-container {
+  background: var(--bg-secondary);
+  padding: 1em;
+  border-radius: 4px;
+  margin: 1em 0;
+}
+
+.mermaid {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1em 0;
+  margin: 0.5em 0;
+}
+
+.error {
+  color: #e74c3c;
+  font-family: monospace;
+  margin: 0;
+}
+
+.mermaid {
+  text-align: center;
+  margin: 1em 0;
+}
+
+.markdown-body .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1em 0;
+}
+
+.markdown-body pre {
+  background-color: var(--bg-secondary);
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.preview.markdown-body p,
+.preview.markdown-body h1,
+.preview.markdown-body h2,
+.preview.markdown-body h3,
+.preview.markdown-body h4,
+.preview.markdown-body h5,
+.preview.markdown-body h6,
+.preview.markdown-body ul,
+.preview.markdown-body ol {
+  white-space: pre-wrap;
+}
+
+/* Styles KaTeX */
+.preview-container .katex-display {
+  padding: 1em 0;
+  margin: 1em 0;
+  overflow: auto hidden;
+}
+
+.preview-container .katex {
+  font-size: 1.1em;
+}
+
+/* Fix pour les formules inline */
+.preview-container .katex-inline {
+  display: inline-block;
+  padding: 0 0.2em;
+}
+
+/* Styles KaTeX améliorés */
+.preview-container .katex {
+  font: normal 1.1em KaTeX_Main, 'Times New Roman', serif;
+  line-height: 1.2;
+  text-indent: 0;
+  white-space: normal;
+}
+
+.preview-container .katex-display {
+  display: block;
+  margin: 1em 0;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.preview-container .katex-html {
+  /* Correction des exposants */
+  overflow: visible !important;
+  position: relative;
+}
+
+/* Correction pour les formules en ligne */
+.preview-container p .katex {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.2em;
+}
+
+/* Correction pour les superscripts */
+.preview-container .katex .msupsub {
+  text-align: left;
+}
+
+/* Empêcher le wrapping des formules */
+.preview-container .katex .base {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.preview-container pre {
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* Styles pour les tableaux */
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  overflow: auto;
+  border: 1px solid var(--border-color);
+}
+
+.markdown-body th,
+.markdown-body td {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+}
+
+.markdown-body th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.markdown-body tr:nth-child(even) {
+  background-color: var(--bg-secondary);
+}
+
+.markdown-body tr:hover {
+  background-color: var(--bg-elevated);
 }

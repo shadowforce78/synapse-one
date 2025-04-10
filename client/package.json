@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "markdown-it": "^14.1.0",
+    "markdown-it-mermaid": "^0.2.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -43,13 +44,21 @@
       "electron/**/*"
     ],
     "win": {
-      "target": ["nsis", "portable"]
+      "target": [
+        "nsis",
+        "portable"
+      ]
     },
     "mac": {
-      "target": ["dmg"]
+      "target": [
+        "dmg"
+      ]
     },
     "linux": {
-      "target": ["AppImage", "snap"]
+      "target": [
+        "AppImage",
+        "snap"
+      ]
     }
   }
 }

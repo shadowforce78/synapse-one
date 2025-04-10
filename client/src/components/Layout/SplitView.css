@@ -1,12 +1,13 @@
 .split-view {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: calc(100vh - 200px);
+  height: calc(100vh - var(--navbar-height));
   gap: 1px;
   background-color: var(--border-color);
+  overflow: hidden;
 }
 
 .split-view > * {
-  background-color: var(--bg-primary);
   overflow: hidden;
+  background-color: var(--bg-primary);
 }

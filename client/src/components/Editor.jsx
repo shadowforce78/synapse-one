@@ -1,3 +1,5 @@
+import React from 'react';
+
 const EditorPanel = ({ markdown, setMarkdown }) => {
   return (
     <div className="editor-container">

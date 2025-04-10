@@ -1,19 +1,33 @@
 @echo off
 cls
-REM Exécution de la commande build:ui
+
+@REM REM Nettoyage complet
+@REM echo Cleaning previous installation...
+@REM call npm run clean
+@REM if %errorlevel% neq 0 (
+@REM     echo Cleaning failed but continuing...
+@REM )
+
+@REM REM Installation fraîche des dépendances
+@REM echo Installing dependencies...
+@REM call npm install
+@REM if %errorlevel% neq 0 (
+@REM     echo Dependencies installation failed.
+@REM     exit /b %errorlevel%
+@REM )
+
+REM Build de l'interface
 echo Building UI...
 call npm run build:ui
 if %errorlevel% neq 0 (
     echo UI build failed.
     exit /b %errorlevel%
 )
-echo UI build succeeded.
 
-REM Exécution de la commande npm start dans le même terminal
-echo Starting server...
-call npm start
+REM Démarrage en mode développement
+echo Starting application...
+call npm run dev
 if %errorlevel% neq 0 (
-    echo Server start failed.
+    echo Development server start failed.
     exit /b %errorlevel%
 )
-echo Server started successfully.
