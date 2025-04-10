@@ -18,7 +18,7 @@ Créer un éditeur markdown fonctionnel, fluide, avec preview et export.
 - [x] Chargement / ouverture d’un fichier `.md`
 - [x] Ajout prise en charge de `Latex` pour les formules mathématiques
 - [x] Export PDF (via `html2pdf` ou `jsPDF`)
-- [ ] UI simple, propre, inspiration Obsidian / Notion
+- [x] UI simple, propre, inspiration Obsidian / Notion
 
 ---
 

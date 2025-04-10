@@ -11,7 +11,8 @@
     "build": "npm run build:ui && electron-builder build"
   },
   "dependencies": {
-    "electron": "^29.1.0"
+    "electron": "^29.1.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",

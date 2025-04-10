@@ -1,0 +1,41 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.app-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.module-container {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.editor-module {
+  height: 100%;
+  width: 100%;
+}
+
+.coming-soon-module {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 2rem;
+}
+
+.coming-soon-module h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

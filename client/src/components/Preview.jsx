@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import MarkdownIt from 'markdown-it';
-import React from 'react';
 
 // Regex pour détecter les expressions LaTeX
 const inlineMathRegex = /\$([^\$]+)\$/g;
@@ -27,31 +26,46 @@ md.renderer.rules.text = (tokens, idx) => {
 const PreviewPanel = ({ markdown }) => {
   const [renderedContent, setRenderedContent] = useState('');
   const containerRef = useRef(null);
+  const previousMarkdownRef = useRef('');
 
+  // Premier rendu Markdown quand le contenu change
   useEffect(() => {
-    setRenderedContent(md.render(markdown || ''));
+    // Normalisation pour éviter les problèmes avec les espaces
+    const normalizedMarkdown = (markdown || '') + '\n';
+    
+    // Ne mettre à jour que si le contenu a réellement changé après normalisation
+    if (normalizedMarkdown !== previousMarkdownRef.current) {
+      previousMarkdownRef.current = normalizedMarkdown;
+      setRenderedContent(md.render(normalizedMarkdown));
+    }
   }, [markdown]);
 
+  // Rendu LaTeX après le rendu markdown
   useEffect(() => {
-    if (!containerRef.current || !window.katex) return;
+    const renderLatex = async () => {
+      if (!containerRef.current || !window.katex) return;
 
-    // Rendu des expressions LaTeX
-    const renderLatex = () => {
-      const elements = containerRef.current.querySelectorAll('[data-latex]');
+      // Attendre un cycle pour s'assurer que le DOM est stable
+      await new Promise(resolve => setTimeout(resolve, 0));
+
+      // Sélectionner tous les éléments LaTeX non traités
+      const elements = containerRef.current.querySelectorAll('[data-latex]:not([data-processed])');
+      
       elements.forEach(element => {
-        if (element.getAttribute('data-processed')) return;
-        
         try {
           const latex = decodeURIComponent(element.getAttribute('data-latex'));
           const displayMode = element.classList.contains('katex-block');
+          
           window.katex.render(latex, element, {
             displayMode,
-            throwOnError: false
+            throwOnError: false,
+            output: 'html'
           });
+          
           element.setAttribute('data-processed', 'true');
         } catch (error) {
           console.error('LaTeX render error:', error);
-          element.textContent = error.message;
+          element.textContent = `Error: ${error.message}`;
         }
       });
     };

@@ -1,0 +1,92 @@
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  height: 100vh;
+  background-color: var(--bg-elevated);
+  border-right: 1px solid var(--border-color);
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.side-nav.collapsed {
+  width: 60px;
+}
+
+.side-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  height: 60px;
+}
+
+.app-logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.collapse-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-nav-modules {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  overflow-y: auto;
+}
+
+.module-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 4px;
+  margin: 4px 8px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.module-item:hover {
+  background-color: var(--bg-secondary);
+}
+
+.module-item.active {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.module-item.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.module-icon {
+  margin-right: 12px;
+  font-size: 1.1rem;
+}
+
+.coming-soon {
+  font-size: 0.7rem;
+  background-color: var(--bg-secondary);
+  padding: 2px 6px;
+  border-radius: 10px;
+  position: absolute;
+  right: 10px;
+}
+
+.module-item.active .coming-soon {
+  background-color: rgba(255, 255, 255, 0.2);
+}
