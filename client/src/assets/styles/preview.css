@@ -2,15 +2,17 @@
   height: 100%;
   width: 100%;
   padding: 20px;
-  overflow-y: auto;
+  overflow: auto;
+  white-space: nowrap;
   background-color: var(--bg-primary);
 }
 
 .preview.markdown-body {
-  max-width: 800px;
-  margin: 0 auto;
-  font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
+  max-width: none;
+  height: 100%;
+  overflow: auto;
+  white-space: pre;
+  min-width: min-content;
 }
 
 .markdown-body h1 { font-size: 2em; margin-bottom: 0.5em; }
@@ -85,6 +87,18 @@
   overflow-x: auto;
 }
 
+.preview.markdown-body p,
+.preview.markdown-body h1,
+.preview.markdown-body h2,
+.preview.markdown-body h3,
+.preview.markdown-body h4,
+.preview.markdown-body h5,
+.preview.markdown-body h6,
+.preview.markdown-body ul,
+.preview.markdown-body ol {
+  white-space: pre-wrap;
+}
+
 /* Styles KaTeX */
 .preview-container .katex-display {
   padding: 1em 0;
@@ -140,4 +154,37 @@
 .preview-container .katex .base {
   display: inline-flex;
   align-items: baseline;
+}
+
+.preview-container pre {
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* Styles pour les tableaux */
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  overflow: auto;
+  border: 1px solid var(--border-color);
+}
+
+.markdown-body th,
+.markdown-body td {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+}
+
+.markdown-body th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.markdown-body tr:nth-child(even) {
+  background-color: var(--bg-secondary);
+}
+
+.markdown-body tr:hover {
+  background-color: var(--bg-elevated);
 }

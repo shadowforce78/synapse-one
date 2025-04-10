@@ -15,17 +15,6 @@ function AppContent() {
 
 Start typing your markdown here...
 
-## Exemple de diagramme Mermaid
-
-\`\`\`mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-
-\`\`\`
-
 ## Exemple de formule LaTeX
 
 Soit l'équation quadratique : $ax^2 + bx + c = 0$
@@ -39,10 +28,9 @@ La solution est donnée par : $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}$$
     { id: 3, text: 'Mode clair / sombre', done: true },
     { id: 4, text: 'Sauvegarde locale (.md)', done: true },
     { id: 5, text: 'Chargement / ouverture fichier .md', done: true },
-    { id: 6, text: 'Prise en charge de Mermaid', done: true },
-    { id: 7, text: 'Prise en charge de LaTeX', done: true },
-    { id: 8, text: 'Export PDF', done: false },
-    { id: 9, text: 'UI simple et propre', done: false }
+    { id: 6, text: 'Prise en charge de LaTeX', done: true },
+    { id: 7, text: 'Export PDF', done: false },
+    { id: 8, text: 'UI simple et propre', done: false }
   ];
 
   const completedTasks = phase1Tasks.filter(task => task.done).length;

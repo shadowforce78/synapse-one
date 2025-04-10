@@ -2,6 +2,7 @@
   height: 100%;
   width: 100%;
   background-color: var(--bg-primary);
+  overflow: hidden; /* Empêche le double scrollbar */
 }
 
 .editor {
@@ -16,6 +17,8 @@
   line-height: 1.6;
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  white-space: pre;
+  overflow: auto;
 }
 
 .editor::placeholder {
